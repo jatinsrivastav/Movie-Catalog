@@ -26,7 +26,13 @@ public class MovieCatalogResource {
 
         Rating rating1 =new Rating("123",9);
         Rating rating2 = new Rating("34",8);
-        List<Rating> ratings = Arrays.asList(rating1,rating2);
+       // List<Rating> ratings = Arrays.asList(rating1,rating2);
+
+        /* wrong Approach*/
+        List<Rating> ratings = (List<Rating>) new Rating();
+        ratings.add(rating1);
+        ratings.add(rating2);
+
 
 
       return ratings.stream().map(rating -> {
