@@ -1,6 +1,8 @@
 package com.movie_catalog.model;
 
 public class Rating {
+
+
     public Rating(String movieId, int rating) {
         this.movieId = movieId;
         this.rating = rating;
