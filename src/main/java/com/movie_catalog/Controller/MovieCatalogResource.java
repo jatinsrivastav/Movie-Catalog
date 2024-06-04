@@ -32,11 +32,11 @@ public class MovieCatalogResource {
         Rating rating2 = new Rating("34", 8);
         List<Rating> ratings = Arrays.asList(rating1, rating2);*/
 
-        UserRating userRating = restTemplate.getForObject("http://localhost:8082/ratingsdata/users/"
+        UserRating userRating = restTemplate.getForObject("http://movie-Raing-data/ratingsdata/users/"
                 + userId, UserRating.class);
 
         return userRating.getUserrating().stream().map(rating -> {
-            Movie movie = restTemplate.getForObject("http://localhost:8081/movies/"
+            Movie movie = restTemplate.getForObject("http://movie-infoService/movies/"
                     + rating.getMovieId(), Movie.class);
             return new CatalogItem(movie.getName(), "noic", rating.getRating());
         }).collect(Collectors.toList());
